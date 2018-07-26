@@ -1,6 +1,7 @@
 ---
 driver:
-  name: vagrant
+  name: docker
+  #volume: C:/chef:/etc/chef/
 
 provisioner:
   name: chef_zero
@@ -8,13 +9,21 @@ provisioner:
   # For example:
   #   always_update_cookbooks: <%= !ENV['CI'] %>
   always_update_cookbooks: true
+#  client_rb:
+#    #audit_mode: :audit_only
+#    log_level:        ":debug"
+#    log_location:     "STDOUT"
+#    ssl_verify_mode: ":no_verify"
+#    chef_server_url:  "https://prod-chef-server-4plataforma.brazilsouth.cloudapp.azure.com/organizations/bigdata"
+#    validation_client_name:  "bigdata-validator"
+#    validation_key: "/etc/chef/bigdata-validator.pem"
 
 verifier:
   name: inspec
 
 platforms:
   - name: ubuntu-16.04
-  - name: centos-7
+  #- name: centos-7
 
 suites:
   - name: default
